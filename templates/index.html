@@ -85,6 +85,7 @@
                 <input name="cardinal" type="hidden" value="{{ cardinal }}">
                 <input name="player_row" type="hidden" value="{{ player_row }}">
                 <input name="player_col" type="hidden" value="{{ player_col }}">
+                <input name="punch_card" type="hidden" value="{{ punch_card }}">
                 <div class="container">
                     <div class="text-center" style="height: 70px;">
                         <button name="direction" type="submit"
@@ -109,15 +110,15 @@
             </form>
         </div>
         {{ treasure|safe }}
-        <div class="col-sm-11 col-sm-offset-1">
-            <h2 class="text-center fg-header">Room</h2>
-            <br>
-            <div class="card mb-3 text-center bg-farm fg-farm">
-                <div class="card-body">
-                    <pre class="fg-farm"><code>{{ room }}</code></pre>
-                </div>
-            </div>
-        </div>
+{#        <div class="col-sm-11 col-sm-offset-1">#}
+{#            <h2 class="text-center fg-header">Room</h2>#}
+{#            <br>#}
+{#            <div class="card mb-3 text-center bg-farm fg-farm">#}
+{#                <div class="card-body">#}
+{#                    <pre class="fg-farm"><code>{{ room }}</code></pre>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
     </div>
 </div>
 <br><br>
