@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Texas Corn Maze</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <style>
+        .container {
+            max-width: 800px;
+        }
+
+        .button-image {
+            padding: 0;
+        }
+
+        .button-image:before {
+            content: "";
+            width: 93px;
+            height: 64px;
+            display: inline-block;
+            vertical-align: top;
+            background-color: transparent;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+
+        .turnLeftButton:before {
+            background-image: url('../static/turn_left.png');
+        }
+
+        .upButton:before {
+            background-image: url('../static/up.png');
+        }
+
+        .turnRightButton:before {
+            background-image: url('../static/turn_right.png');
+        }
+
+        .leftButton:before {
+            background-image: url('../static/left.png');
+        }
+
+        .downButton:before {
+            background-image: url('../static/down.png');
+        }
+
+        .rightButton:before {
+            background-image: url('../static/right.png');
+        }
+
+        .fg-header {
+            color: rgba(241, 169, 160, 1);
+        }
+
+        .bg-button {
+            background-color: rgba(30, 130, 76, 1);
+        }
+
+        .bg-farm {
+            background-color: rgba({{ bg_farm|safe }});
+        }
+
+        .fg-farm {
+            color: rgba({{ fg_farm|safe }});
+        }
+    </style>
+</head>
+<body class="bg-farm">
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-1">
+            <h1 class="text-center fg-header">Sweet Berry Farms'<br>
+                Texas-Shaped<br>
+                Corn Maze Simulator</h1>
+            <br>
+            <div class="card mb-3 text-center bg-farm fg-farm">
+                <div class="card-title">{{ card_title|safe }}</div>
+                <div class="card-body">
+                    <pre class="fg-farm"><code>{{ display }}</code></pre>
+                </div>
+            </div>
+            <form method="post" action="/">
+                <input name="steps" type="hidden" value="{{ steps }}">
+                <input name="cardinal" type="hidden" value="{{ cardinal }}">
+                <input name="player_row" type="hidden" value="{{ player_row }}">
+                <input name="player_col" type="hidden" value="{{ player_col }}">
+                <div class="container">
+                    <div class="text-center" style="height: 70px;">
+                        <button name="direction" type="submit"
+                                class="btn btn-default button-image turnLeftButton bg-button"
+                                value="q"></button>
+                        <button name="direction" type="submit" class="btn btn-default button-image upButton bg-button"
+                                value="w"></button>
+                        <button name="direction" type="submit"
+                                class="btn btn-default button-image turnRightButton bg-button"
+                                value="e"></button>
+                    </div>
+                    <div class="text-center" style="height: 70px;">
+                        <button name="direction" type="submit" class="btn btn-default button-image leftButton bg-button"
+                                value="a"></button>
+                        <button name="direction" type="submit" class="btn btn-default button-image downButton bg-button"
+                                value="s"></button>
+                        <button name="direction" type="submit"
+                                class="btn btn-default button-image rightButton bg-button"
+                                value="d"></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        {{ treasure|safe }}
+        <div class="col-sm-11 col-sm-offset-1">
+            <h2 class="text-center fg-header">Room</h2>
+            <br>
+            <div class="card mb-3 text-center bg-farm fg-farm">
+                <div class="card-body">
+                    <pre class="fg-farm"><code>{{ room }}</code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br><br>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</body>
+</html>
