@@ -63,6 +63,20 @@ room = [
     '--------------------------------------------------------------------------------',
 ]
 
+punch_card_display = [
+    '------------------------------------------------------',
+    '| Texarcana |  Amarillo   |  Beaumont  |   Lubock    |',
+    '|-----------|-------------|------------|-------------|',
+    '|  Abelene  | Brownsville | San Angelo |   Dallas    |',
+    '|-----------|-------------|------------|-------------|',
+    '| Galveston |   El Paso   | Huntsville | San Antonio |',
+    '|-----------|-------------|------------|-------------|',
+    '|  Temple   |   Laredo    | Terlingua  |  La Grange  |',
+    '|----------------------------------------------------|',
+    '|                     Luckenbach                     |',
+    '------------------------------------------------------',
+]
+
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -111,7 +125,8 @@ def index():
 
     return render_template('index.html', card_title=card_title, display=display, cardinal=cardinal,
                            player_row=player_row, player_col=player_col, room=roomStr, treasure=treasure,
-                           fg_farm=fg_farm_str, bg_farm=bg_farm_str, steps=steps, punch_card=','.join(punch_card))
+                           fg_farm=fg_farm_str, bg_farm=bg_farm_str, steps=steps, punch_card=','.join(punch_card),
+                           punch_card_display=print_screen(punch_card_display))
 
 
 def check_for_treasure(player_col, player_row, punch_card):
@@ -343,14 +358,16 @@ def move(current_cardinal, current_row, current_col, direction):
     elif direction == 'd':
         new_col += 1
 
-    if hit_wall(room[new_row][new_col]):
+    if room[new_row][new_col] == '-':
+        return 'Ain\'t nothing that a-way.<br>', new_cardinal, current_row, current_col
+    elif hit_wall(room[new_row][new_col]):
         return 'Corn.<br>', new_cardinal, current_row, current_col
 
     return '', new_cardinal, new_row, new_col
 
 
 def hit_wall(map_char):
-    return re.search('[. 0-9A-Z]', map_char) is None
+    return re.search('[-. 0-9A-Z]', map_char) is None
 
 
 def spin_room(current_row, current_col, current_room, direction):
@@ -435,22 +452,22 @@ def wall_ahead(screen, player_row, player_col, room):
 
 
 def mark_treasure(screen, player_row, player_col, room):
-    distance = 0
-    for i in range(player_row + 1):
-        if hit_wall(room[player_row - i][player_col]):
-            return
-        if re.search('[0-9A-Z]', room[player_row - i][player_col]) is not None:
-            distance = i
+    distances = []
+    for i in range(player_row):
+        if hit_wall(room[player_row - i - 1][player_col]):
             break
+        if re.search('[0-9A-Z]', room[player_row - i - 1][player_col]) is not None:
+            distances.append(i + 1)
 
-    if distance >= screen_height // 2:
-        return
+    for distance in distances:
+        if distance >= screen_height // 2:
+            return
 
-    r = screen_height - distance - 1
-    screen[r][screen_len // 2 - 2] = '*'
-    screen[r][screen_len // 2 - 1] = '*'
-    screen[r][screen_len // 2] = '*'
-    screen[r][screen_len // 2 + 1] = '*'
+        r = screen_height - distance - 1
+        screen[r][screen_len // 2 - 2] = '*'
+        screen[r][screen_len // 2 - 1] = '*'
+        screen[r][screen_len // 2] = '*'
+        screen[r][screen_len // 2 + 1] = '*'
 
 
 def side_walls(screen, player_row, player_col, room):
@@ -458,23 +475,23 @@ def side_walls(screen, player_row, player_col, room):
     right_wall = ''
 
     for r in range(player_row + 1):
-        if room[player_row - r][player_col - 1] != '.':
+        if hit_wall(room[player_row - r][player_col - 1]):
             left_wall += room[player_row - r][player_col - 1]
-        elif r == 0 and room[player_row - 1][player_col] != '.':
+        elif r == 0 and hit_wall(room[player_row - 1][player_col]):
             break
         else:
             left_wall += ' '
-        if room[player_row - r - 1][player_col] != '.':
+        if hit_wall(room[player_row - r - 1][player_col]):
             break
 
     for r in range(player_row + 1):
-        if room[player_row - r][player_col + 1] != '.':
+        if hit_wall(room[player_row - r][player_col + 1]):
             right_wall += room[player_row - r][player_col + 1]
-        elif r == 0 and room[player_row - 1][player_col] != '.':
+        elif r == 0 and hit_wall(room[player_row - 1][player_col]):
             break
         else:
             right_wall += ' '
-        if room[player_row - r - 1][player_col] != '.':
+        if hit_wall(room[player_row - r - 1][player_col]):
             break
 
     if re.search('[^ ]', left_wall):

@@ -7,7 +7,7 @@
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <style>
         .container {
-            max-width: 800px;
+            max-width: 1200px;
         }
 
         .button-image {
@@ -67,20 +67,20 @@
     </style>
 </head>
 <body class="bg-farm">
-<div class="container">
-    <div class="row">
-        <div class="col-sm-6 col-sm-offset-1">
-            <h1 class="text-center fg-header">Sweet Berry Farms'<br>
-                Texas-Shaped<br>
-                Corn Maze Simulator</h1>
-            <br>
-            <div class="card mb-3 text-center bg-farm fg-farm">
-                <div class="card-title">{{ card_title|safe }}</div>
-                <div class="card-body">
-                    <pre class="fg-farm"><code>{{ display }}</code></pre>
+<form method="post" action="/">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <h1 class="text-center fg-header">Sweet Berry Farms'<br>
+                    Texas-Shaped<br>
+                    Corn Maze Simulator</h1>
+                <br>
+                <div class="card mb-3 text-center bg-farm fg-farm">
+                    <div class="card-title">{{ card_title|safe }}</div>
+                    <div class="card-body">
+                        <pre class="fg-farm"><code>{{ display }}</code></pre>
+                    </div>
                 </div>
-            </div>
-            <form method="post" action="/">
                 <input name="steps" type="hidden" value="{{ steps }}">
                 <input name="cardinal" type="hidden" value="{{ cardinal }}">
                 <input name="player_row" type="hidden" value="{{ player_row }}">
@@ -107,20 +107,34 @@
                                 value="d"></button>
                     </div>
                 </div>
-            </form>
+            </div>
+            <div class="col-lg-6">
+                <h2 class="fg-header text-center">Punch Card</h2>
+                <br>
+                <div class="card mb-3 text-center bg-farm fg-farm">
+                    <div class="card-title text-center">SINGIN' ACROSS TEXAS</div>
+                    <div class="card-title">Find the 17 cities that have songs written<br>about them in our 4 acre maze.
+                    </div>
+                    <div class="card-body">
+                        <pre style="background-color: rgba(242, 241, 239, 1); color: black;"><code><a
+                                href="http://google.com"> </a><a href="http://google.com">a</a><a
+                                href="http://google.com">b</a><a href="http://google.com">c</a></code></pre>
+                    </div>
+                </div>
+                {{ treasure|safe }}
+            </div>
+            {#        <div class="col-sm-11 col-sm-offset-1">#}
+            {#            <h2 class="text-center fg-header">Room</h2>#}
+            {#            <br>#}
+            {#            <div class="card mb-3 text-center bg-farm fg-farm">#}
+            {#                <div class="card-body">#}
+            {#                    <pre class="fg-farm"><code>{{ room }}</code></pre>#}
+            {#                </div>#}
+            {#            </div>#}
+            {#        </div>#}
         </div>
-        {{ treasure|safe }}
-{#        <div class="col-sm-11 col-sm-offset-1">#}
-{#            <h2 class="text-center fg-header">Room</h2>#}
-{#            <br>#}
-{#            <div class="card mb-3 text-center bg-farm fg-farm">#}
-{#                <div class="card-body">#}
-{#                    <pre class="fg-farm"><code>{{ room }}</code></pre>#}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
     </div>
-</div>
+</form>
 <br><br>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

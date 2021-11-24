@@ -1,15 +1,16 @@
-<div class="col-sm-5">
+<div>
     <h2 class="fg-header">You Found {{ name }}!</h2>
     <br>
     <div class="card mb-3 bg-farm fg-farm">
-        <div class="card-title text-center" style="background-color:rgba(30, 130, 76, 1); color:white;">{{ name|upper }}</div>
+        <div class="card-title text-center"
+             style="background-color:rgba(30, 130, 76, 1); color:white;">{{ name|upper }}</div>
         <div class="card-body">
             Population: {{ pop }}<br>
             Music Link:<br>
             <a class="fg-farm" style="text-decoration: underline;"
                href="{{ song_link }}"
                target="popup"
-               onclick="window.open('{{ song_link }}','popup','width=560,height=315'); return false;">
+               onclick="window.open('{{ song_link }}','popup','width=725,height=500'); return false;">
                 {{ song_display }}</a>
         </div>
     </div>
