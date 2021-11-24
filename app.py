@@ -460,14 +460,14 @@ def mark_treasure(screen, player_row, player_col, room):
             distances.append(i + 1)
 
     for distance in distances:
-        if distance >= screen_height // 2:
+        if distance >= screen_height // 2 + 1:
             return
 
         r = screen_height - distance - 1
-        screen[r][screen_len // 2 - 2] = '*'
-        screen[r][screen_len // 2 - 1] = '*'
-        screen[r][screen_len // 2] = '*'
-        screen[r][screen_len // 2 + 1] = '*'
+        screen[r + 1][screen_len // 2 - 2] = '*'
+        screen[r + 1][screen_len // 2 - 1] = '*'
+        screen[r + 1][screen_len // 2] = '*'
+        screen[r + 1][screen_len // 2 + 1] = '*'
 
 
 def side_walls(screen, player_row, player_col, room):
