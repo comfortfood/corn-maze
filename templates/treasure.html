@@ -1,6 +1,11 @@
+<br>
 <div>
-    <h2 class="fg-header">You Found {{ name }}!</h2>
-    <br>
+    {% if punch_it %}
+        <h2 class="fg-header">You Found {{ name }}!</h2>
+        <h5  class="fg-header">Click on the city in your card to hole punch it.</h5>
+    {% else %}
+        <h2 class="fg-header">{{ name }}</h2>
+    {% endif %}
     <div class="card mb-3 bg-farm fg-farm">
         <div class="card-title text-center"
              style="background-color:rgba(30, 130, 76, 1); color:white;">{{ name|upper }}</div>
@@ -12,6 +17,16 @@
                target="popup"
                onclick="window.open('{{ song_link }}','popup','width=725,height=500'); return false;">
                 {{ song_display }}</a>
+            {% if extra_song_display|length %}
+                <br>
+                <br>
+                Music Link (About Tennessee):<br>
+                <a class="fg-farm" style="text-decoration: underline;"
+                   href="{{ extra_song_link }}"
+                   target="popup"
+                   onclick="window.open('{{ extra_song_link }}','popup','width=725,height=500'); return false;">
+                    {{ extra_song_display }}</a>
+            {% endif %}
         </div>
     </div>
 </div>

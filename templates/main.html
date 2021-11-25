@@ -67,13 +67,19 @@
     </style>
 </head>
 <body class="bg-farm">
-<form method="post" action="/">
+<form name="the_form" method="post" action="/">
     <div class="container">
         <div class="row">
             <div class="col-lg-4">
                 <h1 class="text-center fg-header">Sweet Berry Farms'<br>
                     Texas-Shaped<br>
                     Corn Maze Simulator</h1>
+                <div class="text-right">
+                    <a class="fg-farm"
+                       href="/about"
+                       target="popup"
+                       onclick="window.open('/about','popup','width=725,height=500'); return false;">About</a>
+                </div>
                 <br>
                 <div class="card mb-3 text-center bg-farm fg-farm">
                     <div class="card-title">{{ card_title|safe }}</div>
@@ -81,11 +87,7 @@
                         <pre class="fg-farm"><code>{{ display }}</code></pre>
                     </div>
                 </div>
-                <input name="steps" type="hidden" value="{{ steps }}">
-                <input name="cardinal" type="hidden" value="{{ cardinal }}">
-                <input name="player_row" type="hidden" value="{{ player_row }}">
-                <input name="player_col" type="hidden" value="{{ player_col }}">
-                <input name="punch_card" type="hidden" value="{{ punch_card }}">
+                <input name="punch_spot" type="hidden" value="">
                 <div class="container">
                     <div class="text-center" style="height: 70px;">
                         <button name="direction" type="submit"
@@ -106,19 +108,28 @@
                                 class="btn btn-default button-image rightButton bg-button"
                                 value="d"></button>
                     </div>
+                    <div class="text-center" style="height: 70px;">
+                        <br>
+                        <button name="reset" type="submit" class="btn btn-default bg-button"
+                                value="true">Start Over
+                        </button>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-6">
-                <h2 class="fg-header text-center">Punch Card</h2>
-                <br>
-                <div class="card mb-3 text-center bg-farm fg-farm">
-                    <div class="card-title text-center">SINGIN' ACROSS TEXAS</div>
-                    <div class="card-title">Find the 17 cities that have songs written<br>about them in our 4 acre maze.
+                {% if show_exit_message %}
+                    <h2 class="fg-header text-center">You Found All the Cities!</h2>
+                    <div class="card mb-3 text-center bg-farm fg-farm">
+                        <div class="card-body">
+                            Exit the maze through the north, north west, or southeast exits.
+                        </div>
                     </div>
+                {% endif %}
+                <br>
+                <h2 class="fg-header text-center">Punch Card</h2>
+                <div class="card mb-3 text-center bg-farm fg-farm">
                     <div class="card-body">
-                        <pre style="background-color: rgba(242, 241, 239, 1); color: black;"><code><a
-                                href="http://google.com"> </a><a href="http://google.com">a</a><a
-                                href="http://google.com">b</a><a href="http://google.com">c</a></code></pre>
+                        {{ punch_card_display|safe }}
                     </div>
                 </div>
                 {{ treasure|safe }}
