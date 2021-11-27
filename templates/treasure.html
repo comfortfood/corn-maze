@@ -4,12 +4,12 @@
         <h5 class="text-center fg-farm">Click on the city in your card to hole punch it.</h5>
         <br>
     {% endif %}
-    <div class="card-title text-center"
-         style="background-color:rgba(30, 130, 76, 1); color:white;">{{ name|upper }}</div>
+    <div class="card-title text-center text-white"
+         style="background-color:rgba(30, 130, 76, 1);">{{ name|upper }}</div>
     <div class="card-body text-center">
         Population: {{ pop }}<br>
         Music Link:<br>
-        <a class="fg-header" style="text-decoration: underline;"
+        <a class="fg-header"
            href="{{ song_link }}"
            target="popup"
            onclick="window.open('{{ song_link }}','popup','width=725,height=500'); return false;">
@@ -17,8 +17,8 @@
         {% if extra_song_display|length %}
             <br>
             <br>
-            Music Link (About Tennessee):<br>
-            <a class="fg-header" style="text-decoration: underline;"
+            More Music (About Tennessee):<br>
+            <a class="fg-header"
                href="{{ extra_song_link }}"
                target="popup"
                onclick="window.open('{{ extra_song_link }}','popup','width=725,height=500'); return false;">
@@ -28,7 +28,9 @@
         <br>
         Indigenous Peoples:<br>
         {% for people in peoples %}
-            {{ people[1] }}<br>
+            <a class="fg-farm" style="text-decoration: underline;"
+               href="https://native-land.ca/maps/territories/{{ people[0] | safe }}/">{{ people[1] }}</a>
+            <br>
         {% endfor %}
     </div>
 </div>

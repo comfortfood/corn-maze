@@ -68,7 +68,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript">
         $(window).on('load', function () {
-            $('#exampleModal').modal('show');
+            $('#welcomeModal').modal('show');
         });
     </script>
 </head>
@@ -131,9 +131,36 @@
                     </div>
                     <div class="text-center" style="height: 70px;">
                         <br>
-                        <button name="reset" type="submit" class="btn btn-default bg-button"
-                                value="true">Start Over
+                        <button type="button" class="btn btn-default bg-button text-white" data-toggle="modal"
+                                data-target="#startOverModal">
+                            Start Over
                         </button>
+                        <div class="modal" id="startOverModal" tabindex="-1" role="dialog"
+                             aria-labelledby="startOverModalLabel"
+                             aria-hidden="true">
+                            <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+                                <div class="modal-content bg-farm fg-farm">
+                                    <br>
+                                    <div class="modal-body text-center">
+                                        Are you sure? You'll lose all your progress.
+                                    </div>
+                                    <div class="container">
+                                        <div class="row text-center">
+                                            <div class="col-sm-12">
+                                                <button type="button" class="btn btn-default bg-button text-white"
+                                                        data-dismiss="modal">Cancel
+                                                </button>
+                                                <button name="reset" type="submit"
+                                                        class="btn btn-default bg-button text-white" value="true">Start
+                                                    Over
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -145,7 +172,8 @@
                             You beat the maze! Congrats!
                             <br>
                             <br>
-                            <a class="fg-farm" style="text-decoration: underline;" href="/ending">Check Out More of Texas</a>
+                            <a class="fg-farm" style="text-decoration: underline;" href="/ending">Check out more in
+                                Texas</a>
                         </div>
                     </div>
                     <br>

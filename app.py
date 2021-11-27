@@ -9,7 +9,7 @@ room = [
     ' ________________________________________________________________________________ ',
     '|                                                                                |',
     '|                                                                                |',
-    '|                    xxxxCxx.xxxx.xxxxxx                                         |',
+    '|                    xxxx.xx.xxxx.xxxxxx                                         |',
     '|                    xxx......xxx.xx...x                                         |',
     '|                    xx..xxxx........x.x                                         |',
     '|                    xx.xx...xxx.xxx.x.x                                         |',
@@ -261,7 +261,7 @@ sam_i_am = {
         'extra_song_display': 'Furry Lewis - I\'m Going to Brownsville',
         'extra_song_link': 'https://www.youtube.com/watch?v=vvDGmcFTJAk',
         'peoples': [
-            ['estokgna/', 'Esto’k Gna (CarrizoComecrudo)'],
+            ['estokgna', 'Esto’k Gna (CarrizoComecrudo)'],
             ['coahuiltecan', 'Coahuiltecan'],
             ['lipan-apache', 'Ndé Kónitsąąíí Gokíyaa (Lipan Apache)'],
             ['rayados-borrados', 'Rayados (Borrados)'],
@@ -461,13 +461,22 @@ def calc_punch_card_display(bg_farm_str, sr, er, sc, ec, punch_card, punch_it):
             c -= 1
         r -= 1
 
-    pcd = '<pre style="line-height: 1; background-color: rgba(242, 241, 239, 1); color: black;"><code>' + pcd + '</code></pre>'
+    pcd = '<pre style="line-height: 1; background-color: rgba(242, 241, 239, 1); text-black;"><code>' + pcd + '</code></pre>'
     return pcd
 
 
 @app.route('/ending', methods=['GET'])
 def ending():
-    return render_template('ending.html')
+    cookie_state = request.cookies.get('state')
+    if cookie_state is None or (request.method == 'POST' and 'reset' in request.form):
+        steps = 0
+    else:
+        json_decoder = json.JSONDecoder()
+        state = json_decoder.decode(cookie_state)
+
+        steps = state['steps']
+    bg_farm_str, fg_farm_str = get_colors(steps)
+    return render_template('ending.html', bg_farm=bg_farm_str, fg_farm=fg_farm_str)
 
 
 @app.route('/', methods=['GET', 'POST'])
