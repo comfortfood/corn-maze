@@ -65,26 +65,47 @@
             color: rgba({{ fg_farm|safe }});
         }
     </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(window).on('load', function () {
+            $('#exampleModal').modal('show');
+        });
+    </script>
 </head>
 <body class="bg-farm">
+{% if welcome_modal %}
+    {% include 'welcome.html' %}
+{% endif %}
 <form name="the_form" method="post" action="/">
     <div class="container">
         <div class="row">
-            <div class="col-lg-4">
-                <h1 class="text-center fg-header">Sweet Berry Farms'<br>
-                    Texas-Shaped<br>
-                    Corn Maze Simulator</h1>
-                <div class="text-right">
-                    <a class="fg-farm"
-                       href="/about"
-                       target="popup"
-                       onclick="window.open('/about','popup','width=725,height=500'); return false;">About</a>
-                </div>
-                <br>
-                <div class="card mb-3 text-center bg-farm fg-farm">
-                    <div class="card-title">{{ card_title|safe }}</div>
+            <div class="col-lg-12">
+                <h1 class="fg-header">Sweet Berry Farm's Texas-Shaped<br>Corn Maze Simulator</h1>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card text-center bg-farm fg-farm">
                     <div class="card-body">
-                        <pre class="fg-farm"><code>{{ display }}</code></pre>
+                        <div class="container">
+                            <div class="row">
+                                <div class="card bg-farm col-sm-4 offset-sm-2">
+                                    <pre class="fg-farm"><code>{{ room }}</code></pre>
+                                </div>
+                                <div class="col-sm-4 fg-farm" style="display: flex; align-items: center;">
+                                    {{ card_title|safe }}
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="card bg-farm">
+                            <br>
+                            {% if card_title2|length %}
+                                <div class="fg-farm">{{ card_title2 }}</div>
+                            {% endif %}
+                            <pre class="fg-farm"><code>{{ display }}</code></pre>
+                        </div>
                     </div>
                 </div>
                 <input name="punch_spot" type="hidden" value="">
@@ -117,32 +138,35 @@
                 </div>
             </div>
             <div class="col-lg-6">
+                {% if won %}
+                    <div class="card text-center bg-farm fg-farm">
+                        <h2 class="fg-header text-center">Nice Job, Pardner!</h2>
+                        <div class="card-body">
+                            You beat the maze! Congrats!
+                            <br>
+                            <br>
+                            <a class="fg-farm" style="text-decoration: underline;" href="/ending">Check Out More of Texas</a>
+                        </div>
+                    </div>
+                    <br>
+                {% endif %}
                 {% if show_exit_message %}
-                    <h2 class="fg-header text-center">You Found All the Cities!</h2>
-                    <div class="card mb-3 text-center bg-farm fg-farm">
+                    <div class="card text-center bg-farm fg-farm">
+                        <h2 class="fg-header text-center">You Found All the Cities!</h2>
                         <div class="card-body">
                             Exit the maze through the north, north west, or southeast exits.
                         </div>
                     </div>
+                    <br>
                 {% endif %}
-                <br>
-                <h2 class="fg-header text-center">Punch Card</h2>
-                <div class="card mb-3 text-center bg-farm fg-farm">
+                {{ treasure|safe }}
+                <div class="card text-center bg-farm fg-farm">
+                    <h3 class="fg-header text-center">Punch Card</h3>
                     <div class="card-body">
                         {{ punch_card_display|safe }}
                     </div>
                 </div>
-                {{ treasure|safe }}
             </div>
-            {#        <div class="col-sm-11 col-sm-offset-1">#}
-            {#            <h2 class="text-center fg-header">Room</h2>#}
-            {#            <br>#}
-            {#            <div class="card mb-3 text-center bg-farm fg-farm">#}
-            {#                <div class="card-body">#}
-            {#                    <pre class="fg-farm"><code>{{ room }}</code></pre>#}
-            {#                </div>#}
-            {#            </div>#}
-            {#        </div>#}
         </div>
     </div>
 </form>

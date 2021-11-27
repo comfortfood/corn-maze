@@ -1,32 +1,29 @@
-<br>
-<div>
+<div class="card bg-farm fg-farm">
     {% if punch_it %}
-        <h2 class="fg-header">You Found {{ name }}!</h2>
-        <h5  class="fg-header">Click on the city in your card to hole punch it.</h5>
-    {% else %}
-        <h2 class="fg-header">{{ name }}</h2>
+        <h3 class="text-center fg-header">You Found {{ name }}!</h3>
+        <h5 class="text-center fg-farm">Click on the city in your card to hole punch it.</h5>
+        <br>
     {% endif %}
-    <div class="card mb-3 bg-farm fg-farm">
-        <div class="card-title text-center"
-             style="background-color:rgba(30, 130, 76, 1); color:white;">{{ name|upper }}</div>
-        <div class="card-body">
-            Population: {{ pop }}<br>
-            Music Link:<br>
+    <div class="card-title text-center"
+         style="background-color:rgba(30, 130, 76, 1); color:white;">{{ name|upper }}</div>
+    <div class="card-body text-center">
+        Population: {{ pop }}<br>
+        Music Link:<br>
+        <a class="fg-farm" style="text-decoration: underline;"
+           href="{{ song_link }}"
+           target="popup"
+           onclick="window.open('{{ song_link }}','popup','width=725,height=500'); return false;">
+            {{ song_display }}</a>
+        {% if extra_song_display|length %}
+            <br>
+            <br>
+            Music Link (About Tennessee):<br>
             <a class="fg-farm" style="text-decoration: underline;"
-               href="{{ song_link }}"
+               href="{{ extra_song_link }}"
                target="popup"
-               onclick="window.open('{{ song_link }}','popup','width=725,height=500'); return false;">
-                {{ song_display }}</a>
-            {% if extra_song_display|length %}
-                <br>
-                <br>
-                Music Link (About Tennessee):<br>
-                <a class="fg-farm" style="text-decoration: underline;"
-                   href="{{ extra_song_link }}"
-                   target="popup"
-                   onclick="window.open('{{ extra_song_link }}','popup','width=725,height=500'); return false;">
-                    {{ extra_song_display }}</a>
-            {% endif %}
-        </div>
+               onclick="window.open('{{ extra_song_link }}','popup','width=725,height=500'); return false;">
+                {{ extra_song_display }}</a>
+        {% endif %}
     </div>
 </div>
+<br>

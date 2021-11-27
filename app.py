@@ -6,63 +6,123 @@ from flask import Flask, render_template, request, make_response
 app = Flask(__name__)
 
 room = [
-    '----------------------------------------------------------------------------------',
-    '-                                                                                -',
-    '-                                                                                -',
-    '-                    xxxx.xx.xxxx.xxxxxx                                         -',
-    '-                    xxx......xxx.xx...x                                         -',
-    '-                    xx..xxxx........x.x                                         -',
-    '-                    xx.xx...xxx.xxx.x.x                                         -',
-    '-                    xx.xx.x.xxx.....x.x                                         -',
-    '-                    xx.xx.....xxxxx...x                                         -',
-    '-                    xx...xxxx.......xxx                                         -',
-    '-                    xx.x.xx..3xxx....xx                                         -',
-    '-                    x.......xxx...xx..x                                         -',
-    '-                    x.x.xx......x.....x                                         -',
-    '-                    x...x...xxx.xx.xxxxxxxxxx                                   -',
-    '-                    x.xxx.x.xx..x.....xx.....xxxx                               -',
-    '-                    x..xxxx....x....x..x.x.x.xxxxxxxxxxxxx                      -',
-    '-                    xx......xxx..xx..x...x.x...xxxxxx.....xxxxxxxxxxxxxxx       -',
-    '-                    x..x.xx.x4.....x..xx.x...x.....x..xxx.xx....xx...x...xx     -',
-    '-                    xx...x....xxxx.xx..x.xxxx....x..x.....x..xx.x..x...x..xx    -',
-    '-                    xxxxx..x.x...x.xxx.x......xx.xx.xx.x........x.x.......Cx    -',
-    '-                    xx.......x.x.x.....xxxxx.xxx....xx....x....x....x..xx.xx    -',
-    '-                    x..x.xx.xx.....xx.xxx.........xxxx.xx....x.x.x......x.xx    -',
-    '-                    xx.......xx.xx.x..xx..xxx.xxx....x...Bx.xx.x........x.xx    -',
-    '-                    x....x..xx..xx...xxx6.....xx...x..x.xxx.......xxxxx...xx    -',
-    '-                    x.xxxx.xx.......xxxxx.xxx.....x.........xx..........x..x    -',
-    '-                    xx.xxx.....xxxxxxxx...xxxx.xx...xxxxx.x.....xx...x.....x    -',
-    '-   xxxxxxxxxxxxxxxxxxx.xxxxx.x.................x........x..x..x........xxxxx    -',
-    '-  xxxxx..xx....xx............xxxxxx..xxx.xxxx.xx.xx...Axxx......x..xx......xx   -',
-    '-   xxx1.....xx.xx.x.xx.x.xx...xx....xxxx.xx....x.xxx.xxxx..xx.x.......xxx...x   -',
-    '-     xx...x.........x..x....x....xx..5.x....x.xx.................xxxxxx..xx.x   -',
-    '-      xxx...xxx..x...x....x.xxx.xxxxxx.xxxxx..xxxx.xxxxxx.xx.xx......xxx.xx.xx  -',
-    '-       xx.x.x....x.x..xxxx..xxx.....xx.xx....x.......xx........xxx.x........xx  -',
-    '-        x...x....x.........xx...xxx.xx.....xxx7xx.xx.xx...x.xx...D.x..xxx....x  -',
-    '-        xxxxx.xx.xxxx.xxxxxx..x.........xx..xx............x.....xxx...xx..xx.x  -',
-    '-         xxxx.....xxx.xxxxxxx........xx........xx.xxxxxxx.xx.xx..x..x........x  -',
-    '-           xxxx.......xxxxxxxxxxxx.x.xxxxxx.xx....xxxx....xxx.xx.x.......xExx   -',
-    '-            xxxx...xxxxx      xxxx.x........xxxxx.xxx...xGxx......xxx.x..xxx    -',
-    '-             xxx.x.xxxx         xx...x.x..x.xxx...xxx.x.x.xx.xx.....x...xxx     -',
-    '-              xx..2xxxx          xxxx...x....xx8x.xxx.x...xx.....xx.xxxxx       -',
-    '-                xxxxxxx           xxx.x.xxxx.xx...........xxx.xx...Fxxx         -',
-    '-                   xx              xx...x....xxxxxxxxxxxx........xxxx           -',
-    '-                                    xxxx..x.......xx......xxxxxxxxx             -',
-    '-                                     xxxx...xx.xx.xxxx.xx.xxxxxxx               -',
-    '-                                      xxxxx......x.........xxxx                 -',
-    '-                                       xx...x...xx.xxx.....                     -',
-    '-                                        x.9..............xx                     -',
-    '-                                         xxxxxx.xx.xx.x.xx                      -',
-    '-                                          xxxx........x.x                       -',
-    '-                                           xxx.xx...xxx.x                       -',
-    '-                                            xx....x.....x                       -',
-    '-                                              xxxxx.xx.xx                       -',
-    '-                                                xxx0...xx                       -',
-    '-                                                  xxxx...                       -',
-    '-                                                     xxxxxx                     -',
-    '-                                                         xx                     -',
-    '-                                                                                -',
-    '----------------------------------------------------------------------------------',
+    ' ________________________________________________________________________________ ',
+    '|                                                                                |',
+    '|                                                                                |',
+    '|                    xxxx.xx.xxxx.xxxxxx                                         |',
+    '|                    xxx......xxx.xx...x                                         |',
+    '|                    xx..xxxx........x.x                                         |',
+    '|                    xx.xx...xxx.xxx.x.x                                         |',
+    '|                    xx.xx.x.xxx.....x.x                                         |',
+    '|                    xx.xx.....xxxxx...x                                         |',
+    '|                    xx...xxxx.......xxx                                         |',
+    '|                    xx.x.xx..3xxx....xx                                         |',
+    '|                    x.......xxx...xx..x                                         |',
+    '|                    x.x.xx......x.....x                                         |',
+    '|                    x...x...xxx.xx.xxxxxxxxxx                                   |',
+    '|                    x.xxx.x.xx..x.....xx.....xxxx                               |',
+    '|                    x..xxxx....x....x..x.x.x.xxxxxxxxxxxxx                      |',
+    '|                    xx......xxx..xx..x...x.x...xxxxxx.....xxxxxxxxxxxxxxx       |',
+    '|                    x..x.xx.x4.....x..xx.x...x.....x..xxx.xx....xx...x...xx     |',
+    '|                    xx...x....xxxx.xx..x.xxxx....x..x.....x..xx.x..x...x..xx    |',
+    '|                    xxxxx..x.x...x.xxx.x......xx.xx.xx.x........x.x.......Cx    |',
+    '|                    xx.......x.x.x.....xxxxx.xxx....xx....x....x....x..xx.xx    |',
+    '|                    x..x.xx.xx.....xx.xxx.........xxxx.xx....x.x.x......x.xx    |',
+    '|                    xx.......xx.xx.x..xx..xxx.xxx....x...Bx.xx.x........x.xx    |',
+    '|                    x....x..xx..xx...xxx6.....xx...x..x.xxx.......xxxxx...xx    |',
+    '|                    x.xxxx.xx.......xxxxx.xxx.....x.........xx..........x..x    |',
+    '|                    xx.xxx.....xxxxxxxx...xxxx.xx...xxxxx.x.....xx...x.....x    |',
+    '|   xxxxxxxxxxxxxxxxxxx.xxxxx.x.................x........x..x..x........xxxxx    |',
+    '|  xxxxx..xx....xx............xxxxxx..xxx.xxxx.xx.xx...Axxx......x..xx......xx   |',
+    '|   xxx1.....xx.xx.x.xx.x.xx...xx....xxxx.xx....x.xxx.xxxx..xx.x.......xxx...x   |',
+    '|     xx...x.........x..x....x....xx..5.x....x.xx.................xxxxxx..xx.x   |',
+    '|      xxx...xxx..x...x....x.xxx.xxxxxx.xxxxx..xxxx.xxxxxx.xx.xx......xxx.xx.xx  |',
+    '|       xx.x.x....x.x..xxxx..xxx.....xx.xx....x.......xx........xxx.x........xx  |',
+    '|        x...x....x.........xx...xxx.xx.....xxx7xx.xx.xx...x.xx...D.x..xxx....x  |',
+    '|        xxxxx.xx.xxxx.xxxxxx..x.........xx..xx............x.....xxx...xx..xx.x  |',
+    '|         xxxx.....xxx.xxxxxxx........xx........xx.xxxxxxx.xx.xx..x..x........x  |',
+    '|           xxxx.......xxxxxxxxxxxx.x.xxxxxx.xx....xxxx....xxx.xx.x.......xExx   |',
+    '|            xxxx...xxxxx      xxxx.x........xxxxx.xxx...xGxx......xxx.x..xxx    |',
+    '|             xxx.x.xxxx         xx...x.x..x.xxx...xxx.x.x.xx.xx.....x...xxx     |',
+    '|              xx..2xxxx          xxxx...x....xx8x.xxx.x...xx.....xx.xxxxx       |',
+    '|                xxxxxxx           xxx.x.xxxx.xx...........xxx.xx...Fxxx         |',
+    '|                   xx              xx...x....xxxxxxxxxxxx........xxxx           |',
+    '|                                    xxxx..x.......xx......xxxxxxxxx             |',
+    '|                                     xxxx...xx.xx.xxxx.xx.xxxxxxx               |',
+    '|                                      xxxxx......x.........xxxx                 |',
+    '|                                       xx...x...xx.xxx.....                     |',
+    '|                                        x.9..............xx                     |',
+    '|                                         xxxxxx.xx.xx.x.xx                      |',
+    '|                                          xxxx........x.x                       |',
+    '|                                           xxx.xx...xxx.x                       |',
+    '|                                            xx....x.....x                       |',
+    '|                                              xxxxx.xx.xx                       |',
+    '|                                                xxx0...xx                       |',
+    '|                                                  xxxx...                       |',
+    '|                                                     xxxxxx                     |',
+    '|                                                         xx                     |',
+    '|                                                                                |',
+    '|________________________________________________________________________________|',
+]
+
+room_outline = [
+    ' ________________________________________________________________________________ ',
+    '|                                                                                |',
+    '|                        |  |    |                                               |',
+    '|                    xxxx|xx|xxxx|xxxxxx                                         |',
+    '|                    x   ↓  ↓    ↓     x                                         |',
+    '|                    x                 x                                         |',
+    '|                    x                 x                                         |',
+    '|                    x                 x                                         |',
+    '|                    x                 x                                         |',
+    '|                    x                 x                                         |',
+    '|                    x        ✹        x                                         |',
+    '|                    x                 x                                         |',
+    '|                    x                 x                                         |',
+    '|                    x                  xxxxxx                                   |',
+    '|                    x                        xxxx                               |',
+    '|                    x                            xxxxxxxxx                      |',
+    '|                    x                                     xxxxxxxxxxxxxxx       |',
+    '|                    x        ✹                                           xx     |',
+    '|                    x                                                      x    |',
+    '|                    x                                                     ✹x    |',
+    '|                    x                                                      x    |',
+    '|                    x                                                      x    |',
+    '|                    x                                    ✹                 x    |',
+    '|                    x                   ✹                                  x    |',
+    '|                    x                                                      x    |',
+    '|                    x                                                      x    |',
+    '|   xxxxxxxxxxxxxxxxx                                                       x    |',
+    '|  x                                                   ✹                     x   |',
+    '|   xx ✹                                                                     x   |',
+    '|     x                               ✹                                      x   |',
+    '|      x                                                                      x  |',
+    '|       x                                                                     x  |',
+    '|        x                                     ✹                  ✹           x  |',
+    '|        x                                                                    x  |',
+    '|         xx                                                                  x  |',
+    '|           x            xxxxxx                                            ✹ x   |',
+    '|            x          x      xx                         ✹                 x    |',
+    '|             x        x         x                                        xx     |',
+    '|              xx  ✹   x          x             ✹                       xx       |',
+    '|                xxx  xx           x                                ✹ xx         |',
+    '|                   xx              x                               xx           |',
+    '|                                    x                            xx             |',
+    '|                                     x                         xx               |',
+    '|                                      x                    xxxx                 |',
+    '|                                       x                  ←---                  |',
+    '|                                        x ✹               x                     |',
+    '|                                         x               x                      |',
+    '|                                          x             x                       |',
+    '|                                           x            x                       |',
+    '|                                            xx          x                       |',
+    '|                                              xx        x                       |',
+    '|                                                xx ✹    x                       |',
+    '|                                                  xxx    ←---                   |',
+    '|                                                     xxxx x                     |',
+    '|                                                         xx                     |',
+    '|                                                                                |',
+    '|________________________________________________________________________________|',
 ]
 
 sam_i_am = {
@@ -71,7 +131,7 @@ sam_i_am = {
         'pop': '679,813',
         'song_display': 'Marty Robbins - El Paso',
         'song_link': 'https://youtu.be/KAO7vs_Q9is',
-        'start_end_row_col': [9, 10, 13, 25],
+        'start_end_row_col': [12, 14, 13, 25],
         'punch_char': '∏',
     },
     '2': {
@@ -79,7 +139,7 @@ sam_i_am = {
         'pop': '110',
         'song_display': 'Shapes Have Fangs - Terlingua',
         'song_link': 'https://youtu.be/COIB5q792wk',
-        'start_end_row_col': [11, 12, 27, 38],
+        'start_end_row_col': [15, 17, 27, 38],
         'punch_char': '∃',
     },
     '3': {
@@ -87,7 +147,7 @@ sam_i_am = {
         'pop': '198,955',
         'song_display': 'J Balvin - Amarillo',
         'song_link': 'https://youtu.be/KHAgoT4FZbc',
-        'start_end_row_col': [4, 6, 13, 25],
+        'start_end_row_col': [5, 8, 13, 25],
         'punch_char': '∑',
     },
     '4': {
@@ -95,7 +155,7 @@ sam_i_am = {
         'pop': '253,851',
         'song_display': 'Koe Wetzel - Lubbock',
         'song_link': 'https://youtu.be/X90m-jQ-ufY',
-        'start_end_row_col': [4, 6, 40, 53],
+        'start_end_row_col': [5, 8, 40, 53],
         'punch_char': '♠',
     },
     '5': {
@@ -103,7 +163,7 @@ sam_i_am = {
         'pop': '100,031',
         'song_display': 'Aerial East - San Angelo',
         'song_link': 'https://www.youtube.com/watch?v=cZVstDN-fAg',
-        'start_end_row_col': [7, 8, 27, 38],
+        'start_end_row_col': [9, 11, 27, 38],
         'punch_char': '♣',
     },
     '6': {
@@ -111,7 +171,7 @@ sam_i_am = {
         'pop': '124,156',
         'song_display': 'Buck Owens - Abilene',
         'song_link': 'https://www.youtube.com/watch?v=r3CQ8pBSP1w',
-        'start_end_row_col': [7, 8, 0, 11],
+        'start_end_row_col': [9, 11, 0, 11],
         'punch_char': '♥',
     },
     '7': {
@@ -119,7 +179,7 @@ sam_i_am = {
         'pop': '3',
         'song_display': 'Waylon Jennings - Luckenbach, Texas (Back to the Basics of Love)',
         'song_link': 'https://www.youtube.com/watch?v=Ti6QV90X-Sk',
-        'start_end_row_col': [13, 14, 0, 53],
+        'start_end_row_col': [18, 20, 0, 53],
         'punch_char': '♦',
     },
     '8': {
@@ -127,7 +187,7 @@ sam_i_am = {
         'pop': '1,508,000',
         'song_display': 'Bob Wills & His Texas Playboys - San Antonio Rose',
         'song_link': 'https://www.youtube.com/watch?v=e9H8uZEJtnA',
-        'start_end_row_col': [9, 10, 40, 53],
+        'start_end_row_col': [12, 14, 40, 53],
         'punch_char': '*',
     },
     '9': {
@@ -135,7 +195,7 @@ sam_i_am = {
         'pop': '259,151',
         'song_display': 'Band of Horses - Laredo',
         'song_link': 'https://www.youtube.com/watch?v=YH8QICzCO8g',
-        'start_end_row_col': [11, 12, 13, 25],
+        'start_end_row_col': [15, 17, 13, 25],
         'punch_char': '~',
     },
     '0': {
@@ -143,7 +203,7 @@ sam_i_am = {
         'pop': '182,271',
         'song_display': 'Bob Dylan - Brownsville Girl',
         'song_link': 'https://youtu.be/9FaUx-Re8i0',
-        'start_end_row_col': [7, 8, 13, 25],
+        'start_end_row_col': [9, 11, 13, 25],
         'punch_char': '╋',
         'extra_song_display': 'Furry Lewis - I\'m Going to Brownsville',
         'extra_song_link': 'https://www.youtube.com/watch?v=vvDGmcFTJAk',
@@ -153,7 +213,7 @@ sam_i_am = {
         'pop': '74,762',
         'song_display': 'Little Joe Y La Familia - Las Nubes',
         'song_link': 'https://www.youtube.com/watch?v=d-xu_UOJzPY',
-        'start_end_row_col': [11, 12, 0, 11],
+        'start_end_row_col': [15, 17, 0, 11],
         'punch_char': '█',
     },
     'B': {
@@ -161,7 +221,7 @@ sam_i_am = {
         'pop': '1,331,000',
         'song_display': 'Silver Jews - Dallas',
         'song_link': 'https://www.youtube.com/watch?v=U0IgWuSiFDk',
-        'start_end_row_col': [7, 8, 40, 53],
+        'start_end_row_col': [9, 11, 40, 53],
         'punch_char': '◤',
     },
     'C': {
@@ -169,7 +229,7 @@ sam_i_am = {
         'pop': '36,688',
         'song_display': 'Bob Wills & His Texas Playboys - Texarkana Baby',
         'song_link': 'https://www.youtube.com/watch?v=JiiGU3hgB2Q',
-        'start_end_row_col': [4, 6, 0, 11],
+        'start_end_row_col': [5, 8, 0, 11],
         'punch_char': '$',
     },
     'D': {
@@ -177,7 +237,7 @@ sam_i_am = {
         'pop': '41,592',
         'song_display': 'Merle Haggard – Huntsville',
         'song_link': 'https://www.youtube.com/watch?v=Svrlhq5gtuo',
-        'start_end_row_col': [9, 10, 27, 38],
+        'start_end_row_col': [12, 14, 27, 38],
         'punch_char': '¥',
     },
     'E': {
@@ -185,7 +245,7 @@ sam_i_am = {
         'pop': '118,151',
         'song_display': 'Bob Wills & His Texas Playboys - Beaumont Rag',
         'song_link': 'https://www.youtube.com/watch?v=VoXWkbEXqXs',
-        'start_end_row_col': [4, 6, 27, 38],
+        'start_end_row_col': [5, 8, 27, 38],
         'punch_char': '╳',
     },
     'F': {
@@ -193,7 +253,7 @@ sam_i_am = {
         'pop': '50,241',
         'song_display': 'Why Bonnie - Galveston',
         'song_link': 'https://www.youtube.com/watch?v=LOdS2IpU-1E',
-        'start_end_row_col': [9, 10, 0, 11],
+        'start_end_row_col': [12, 14, 0, 11],
         'punch_char': 'Ƨ',
     },
     'G': {
@@ -201,34 +261,41 @@ sam_i_am = {
         'pop': '4,667',
         'song_display': 'ZZ Top - La Grange',
         'song_link': 'https://www.youtube.com/watch?v=rG6b8gjMEkw',
-        'start_end_row_col': [11, 12, 40, 53],
+        'start_end_row_col': [15, 17, 40, 53],
         'punch_char': '¶',
     }
 }
 
 punch_card_orig = [
     ' ____________________________________________________ ',
+    '|                                                    |',
     "|                SINGIN' ACROSS TEXAS                |",
     '|     Find the 17 cities that have songs written     |',
-    '|           about them in our 4 acre maze.           |',
+    '|         about them in our four acre maze.          |',
     '|____________________________________________________|',
+    '|           |             |            |             |',
     '| Texarkana |  Amarillo   |  Beaumont  |   Lubock    |',
     '|___________|_____________|____________|_____________|',
+    '|           |             |            |             |',
     '|  Abilene  | Brownsville | San Angelo |   Dallas    |',
     '|___________|_____________|____________|_____________|',
+    '|           |             |            |             |',
     '| Galveston |   El Paso   | Huntsville | San Antonio |',
     '|___________|_____________|____________|_____________|',
+    '|           |             |            |             |',
     '|  Temple   |   Laredo    | Terlingua  |  La Grange  |',
     '|___________|_____________|____________|_____________|',
+    '|                                                    |',
     '|                     Luckenbach                     |',
     '|____________________________________________________|',
+    '                                                      ',
 ]
 
 north_stars = [
     '               .                    ',
     '    .  .                  .         ',
     '                                    ',
-    '                 .                  ',
+    '                 ✦                  ',
     '                                    ',
     '                                    ',
     '                                    ',
@@ -279,16 +346,14 @@ west_stars = [
 
 def calc_punch_card_display(bg_farm_str, sr, er, sc, ec, punch_card, punch_it):
     pcd = print_screen(punch_card_orig)
-    # TODO skip links if not punch card
-    r = 14
+    r = 20
     while r >= 0:
         c = 53
         while c >= 0:
             if punch_it and sr <= r <= er and sc <= c <= ec:
                 pcd = pcd[:55 * r + c] + str.format(
                     '<a href="javascript:{{}}" onclick="document.the_form.punch_spot.value=\'{}-{}\';document.the_form.submit();return false;">',
-                    r, c) + pcd[
-                          55 * r + c] + '</a>' + pcd[55 * r + c + 1:]
+                    r, c) + pcd[55 * r + c] + '</a>' + pcd[55 * r + c + 1:]
             else:
                 for punch_card_mark in punch_card.values():
                     if r == int(punch_card_mark[0]) and c == int(punch_card_mark[1]):
@@ -298,22 +363,28 @@ def calc_punch_card_display(bg_farm_str, sr, er, sc, ec, punch_card, punch_it):
             c -= 1
         r -= 1
 
-    # pcd = pcd[:55 * 7 + 14] + str.format('</code><code style="color: rgba({});">█</code><code>', bg_farm_str) + pcd[55 * 7 + 14 + 1:]
-    #  </code><code style="background-color: rgba(3, 138, 255, 1); color: black;"> </code><code>
-    pcd = '<pre style="background-color: rgba(242, 241, 239, 1); color: black;"><code>' + pcd + '</code></pre>'
+    pcd = '<pre style="line-height: 1; background-color: rgba(242, 241, 239, 1); color: black;"><code>' + pcd + '</code></pre>'
     return pcd
+
+
+@app.route('/ending', methods=['GET'])
+def ending():
+    return render_template('ending.html')
 
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    card_title = ''
+    card_title2 = ''
     cookie_state = request.cookies.get('state')
     if cookie_state is None or (request.method == 'POST' and 'reset' in request.form):
+        card_title2 = 'Y\'all have fun!'
         steps = 0
         cardinal = 2
         player_row = 1
         player_col = 25
         punch_card = {}
+        won = False
+        welcome_modal = True
     else:
         json_decoder = json.JSONDecoder()
         state = json_decoder.decode(cookie_state)
@@ -323,16 +394,15 @@ def index():
         player_row = state['player_row']
         player_col = state['player_col']
         punch_card = state['punch_card']
-
-    if steps == 0:
-        card_title = 'Y\'all have a good time!<br>'
+        won = state['won']
+        welcome_modal = False
 
     if request.method == 'POST':
         if 'direction' in request.form:
             steps += 1
             direction = request.form['direction']
 
-            card_title, cardinal, player_row, player_col = move(cardinal, player_row, player_col, direction)
+            card_title2, cardinal, player_row, player_col = move(cardinal, player_row, player_col, direction)
 
     if cardinal == 0:
         spun_row, spun_col, spun_room = player_row, player_col, room
@@ -344,7 +414,7 @@ def index():
     else:
         spun_row, spun_col, spun_room = spin_room(player_row, player_col, room, 'q')
 
-    card_title, screen = time_of_day(card_title, steps, cardinal, spun_row, spun_col, spun_room)
+    card_title, screen = time_of_day(steps, cardinal, spun_row, spun_col, spun_room)
     wall_ahead(screen, spun_row, spun_col, spun_room)
     mark_treasure(screen, spun_row, spun_col, spun_room)
     side_walls(screen, spun_row, spun_col, spun_room)
@@ -355,20 +425,31 @@ def index():
     card_title = location(card_title, player_col, player_row)
     card_title = cardinal_str(card_title, cardinal)
 
-    punch_card, treasure, punch_card_display, show_exit_message = check_for_treasure(player_col, player_row, punch_card,
-                                                                                     bg_farm_str, request)
+    punch_card, treasure, punch_card_display = check_for_treasure(player_col, player_row, punch_card, bg_farm_str,
+                                                                  request)
 
-    roomStr = debug_room(cardinal, player_col, player_row)
+    if not won and len(punch_card) == 17 and [player_row, player_col] in [
+        [2, 25], [2, 28], [2, 33], [44, 60], [52, 58]
+    ]:
+        won = True
 
-    resp = make_response(render_template('main.html', card_title=card_title, display=display, room=roomStr,
+    show_exit_message = (not won) and len(punch_card) == 17
+
+    room_str = debug_room(cardinal, player_col, player_row)
+
+    resp = make_response(render_template('main.html', card_title=card_title, display=display, room=room_str,
                                          treasure=treasure, fg_farm=fg_farm_str, bg_farm=bg_farm_str,
-                                         punch_card_display=punch_card_display, show_exit_message=show_exit_message))
+                                         punch_card_display=punch_card_display, show_exit_message=show_exit_message,
+                                         won=won, card_title2=card_title2, empty_room=print_screen(room_outline),
+                                         welcome_modal=welcome_modal))
+
     state = {
         'steps': steps,
         'cardinal': cardinal,
         'player_row': player_row,
         'player_col': player_col,
         'punch_card': punch_card,
+        'won': won
     }
 
     json_encoder = json.JSONEncoder()
@@ -404,40 +485,39 @@ def check_for_treasure(player_col, player_row, punch_card, bg_farm_str, request)
     else:
         treasure = ''
 
-    show_exit_message = len(punch_card) == 17
-
     sr, er, sc, ec = start_end_row_col
     punch_card_display = calc_punch_card_display(bg_farm_str, sr, er, sc, ec, punch_card, punch_it)
 
-    return punch_card, treasure, punch_card_display, show_exit_message
+    return punch_card, treasure, punch_card_display
 
 
 def location(card_title, player_col, player_row):
     card_title += "You're "
     if player_row / (len(room) - 4) < .33:
-        card_title += 'North'
+        card_title += 'north'
     elif player_row / (len(room) - 4) >= .66:
-        card_title += 'South'
+        card_title += 'south'
     if player_col / (len(room[0]) - 4) < .33:
-        card_title += ' West'
+        card_title += 'west'
     elif player_col / (len(room[0]) - 4) >= .66:
-        card_title += ' East'
+        card_title += 'east'
+
     if (player_row / (len(room) - 4) >= .33) and (player_row / (len(room) - 4) < .66) and (
             player_col / (len(room[0]) - 4) >= .33) and (player_col / (len(room[0]) - 4) < .66):
-        card_title += 'Central'
+        card_title += 'central'
     card_title += '<br>'
     return card_title
 
 
 def cardinal_str(card_title, cardinal):
     if cardinal == 0:
-        card_title += 'Headed North.'
+        card_title += "Lookin' north."
     elif cardinal == 1:
-        card_title += 'Headed East.'
+        card_title += "Lookin' east."
     elif cardinal == 2:
-        card_title += 'Headed South.'
+        card_title += "Lookin' south."
     else:
-        card_title += 'Headed West.'
+        card_title += "Lookin' west."
     return card_title
 
 
@@ -451,18 +531,35 @@ def debug_room(cardinal, player_col, player_row):
     else:
         player_char = '◁'
 
-    roomCopy = [[]] * len(room)
+    room_copy = [[]] * len(room)
     for r in range(len(room)):
-        roomCopy[r] = room[r]
-    roomCopy[player_row] = room[player_row][:player_col] + player_char + room[player_row][player_col + 1:]
-    roomStr = print_screen(roomCopy)
-    return roomStr
+        room_copy[r] = room[r]
+    room_copy[player_row] = room[player_row][:player_col] + player_char + room[player_row][player_col + 1:]
+
+    start_row = player_row - 1
+    if start_row < 0:
+        start_row = 0
+    elif start_row > (len(room_copy) - 3):
+        start_row = len(room_copy) - 3
+    start_col = player_col - 3
+    if start_col < 0:
+        start_col = 0
+    elif start_col > (len(room_copy[0]) - 7):
+        start_col = len(room_copy[0]) - 7
+
+    room_subset = []
+    for r in range(3):
+        line = room_copy[start_row + r][start_col:start_col + 7]
+        line = re.sub('[0-9A-G]', '✹', str(line))
+        room_subset.append(line.replace('.', ' ').replace('x', '#'))
+
+    return print_screen(room_subset)
 
 
-def time_of_day(card_title, steps, cardinal, player_row, player_col, room):
+def time_of_day(steps, cardinal, player_row, player_col, room):
     distance = screen_height
     for i in range(player_row):
-        if re.search('[. 0-9A-Z]', room[player_row - 1 - i][player_col]) is None:
+        if re.search('[_|. 0-9A-Z]', room[player_row - 1 - i][player_col]) is None:
             distance = 1 + i
             break
 
@@ -486,12 +583,12 @@ def time_of_day(card_title, steps, cardinal, player_row, player_col, room):
         screen[r] = chars
 
     if steps >= 800:
-        card_title += '<br>It\'s evening.<br>'
+        card_title = 'It\'s evening.<br>'
     elif steps >= 320:
-        card_title += '<br>It\'s Dusk.<br>'
+        card_title = 'It\'s dusk.<br>'
     else:
         screen = screen_init()
-        card_title += '<br>It\'s Afternoon.<br>'
+        card_title = 'It\'s afternoon.<br>'
 
     return card_title, screen
 
@@ -574,16 +671,15 @@ def move(current_cardinal, current_row, current_col, direction):
     elif direction == 'd':
         new_col += 1
 
-    if room[new_row][new_col] == '-':
-        return 'Ain\'t nothing that a-way.<br>', new_cardinal, current_row, current_col
+    if room[new_row][new_col] in ['_', '|']:
+        return 'Nothing that a-way.', new_cardinal, current_row, current_col
     elif hit_wall(room[new_row][new_col]):
-        return 'Corn.<br>', new_cardinal, current_row, current_col
-
+        return 'Naw.', new_cardinal, current_row, current_col
     return '', new_cardinal, new_row, new_col
 
 
 def hit_wall(map_char):
-    return re.search('[-. 0-9A-Z]', map_char) is None
+    return re.search('[_|. 0-9A-Z]', map_char) is None
 
 
 def spin_room(current_row, current_col, current_room, direction):
