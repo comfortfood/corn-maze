@@ -1,0 +1,116 @@
+El Paso:
+'peoples':[
+['mansos','Tampachoa (Mansos)'],
+['mescalero-apache','Mescalero Apache'],
+['tigua','Tigua (Tiwa)'],
+['piro','Piro'],
+['lipan-apache','Ndé Kónitsąąíí Gokíyaa (Lipan Apache)'],
+['sumas','Sumas'],
+['chiricahua-apache','Chiricahua Apache'],
+],
+
+Dallas:
+'peoples':[
+['wichita','Wichita'],
+['tawakoni','Tawakoni'],
+['jumanos','Jumanos'],
+['kiikaapoi-kickapoo','Kiikaapoi (Kickapoo)'],
+],
+Abilene:
+'peoples':[
+['n%ca%89m%ca%89n%ca%89%ca%89-comanche','Nʉmʉnʉʉ (Comanche)'],
+['jumanos','Jumanos'],
+['kiikaapoi-kickapoo','Kiikaapoi (Kickapoo)'],
+],
+Beaumont:
+'peoples':[
+['atakapa-2','Atakapa-Ishak'],
+['koasati-coushatta','Koasati (Coushatta)'],
+['akokisa','Akokisa'],
+],
+
+Texarkana:
+'peoples':[
+['quapaw','O-ga-xpa Ma-zhoⁿ (O-ga-xpa)'],
+['caddo','Caddo'],
+['osage','𐓏𐒰𐓓𐒰𐓓𐒷  𐒼𐓂𐓊𐒻  𐓆𐒻𐒿𐒷  𐓀𐒰^𐓓𐒰^(Osage)'],
+],
+
+San Antonio:
+'peoples':[
+['coahuiltecan','Coahuiltecan'],
+['lipan-apache','Ndé Kónitsąąíí Gokíyaa (Lipan Apache)'],
+['tonkawa-2','Tonkawa'],
+['jumanos','Jumanos'],
+],
+
+San Angelo:
+'peoples':[
+['n%ca%89m%ca%89n%ca%89%ca%89-comanche','Nʉmʉnʉʉ (Comanche)'],
+['lipan-apache','Ndé Kónitsąąíí Gokíyaa (Lipan Apache)'],
+['jumanos','Jumanos'],
+['kiikaapoi-kickapoo','Kiikaapoi (Kickapoo)'],
+],
+
+Galveston:
+'peoples':[
+['karankawa-2','Karankawa'],
+['estokgna/','Esto’k Gna (CarrizoComecrudo)'],
+['atakapa-2','Atakapa-Ishak'],
+['coahuiltecan','Coahuiltecan'],
+['karankawa-2','Karankawa'],
+['akokisa','Akokisa'],
+],
+
+Temple:
+'peoples':[
+['waco','Waco'],
+['tonkawa-2','Tonkawa'],
+['jumanos','Jumanos'],
+],
+Brownsville:
+'peoples':[
+['estokgna/','Esto’k Gna (CarrizoComecrudo)'],
+['coahuiltecan','Coahuiltecan'],
+['lipan-apache','Ndé Kónitsąąíí Gokíyaa (Lipan Apache)'],
+['rayados-borrados','Rayados (Borrados)'],
+],
+Amarillo:
+'peoples':[
+['n%ca%89m%ca%89n%ca%89%ca%89-comanche','Nʉmʉnʉʉ (Comanche)'],
+['kiowa','[Gáuigú (Kiowa)'],
+],
+Huntsville:
+'peoples':[
+['bidai','Bidai'],
+['koasati-coushatta','Koasati (Coushatta)'],
+['tonkawa-2','Tonkawa'],
+],
+Terlingua:
+'peoples':[
+['chiso','Chiso'],
+['mescalero-apache','Mescalero Apache'],
+['pescado','Pescado'],
+['lipan-apache','Ndé Kónitsąąíí Gokíyaa (Lipan Apache)'],
+['jumanos','Jumanos'],
+],
+Luckenbach:
+'peoples':[
+['n%ca%89m%ca%89n%ca%89%ca%89-comanche','Nʉmʉnʉʉ (Comanche)'],
+['coahuiltecan','Coahuiltecan'],
+['lipan-apache','Ndé Kónitsąąíí Gokíyaa (Lipan Apache)'],
+['tonkawa-2','Tonkawa'],
+['jumanos','Jumanos'],
+['kiikaapoi-kickapoo','Kiikaapoi (Kickapoo)'],
+],
+La Grange:
+'peoples':[
+['sanan','Sana'],
+['coahuiltecan','Coahuiltecan'],
+['tonkawa-2','Tonkawa'],
+['jumanos','Jumanos'],
+],
+Lubbock:
+'peoples':[
+['n%ca%89m%ca%89n%ca%89%ca%89-comanche','Nʉmʉnʉʉ (Comanche)'],
+],

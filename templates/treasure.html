@@ -9,7 +9,7 @@
     <div class="card-body text-center">
         Population: {{ pop }}<br>
         Music Link:<br>
-        <a class="fg-farm" style="text-decoration: underline;"
+        <a class="fg-header" style="text-decoration: underline;"
            href="{{ song_link }}"
            target="popup"
            onclick="window.open('{{ song_link }}','popup','width=725,height=500'); return false;">
@@ -18,12 +18,18 @@
             <br>
             <br>
             Music Link (About Tennessee):<br>
-            <a class="fg-farm" style="text-decoration: underline;"
+            <a class="fg-header" style="text-decoration: underline;"
                href="{{ extra_song_link }}"
                target="popup"
                onclick="window.open('{{ extra_song_link }}','popup','width=725,height=500'); return false;">
                 {{ extra_song_display }}</a>
         {% endif %}
+        <br>
+        <br>
+        Indigenous Peoples:<br>
+        {% for people in peoples %}
+            {{ people[1] }}<br>
+        {% endfor %}
     </div>
 </div>
 <br>

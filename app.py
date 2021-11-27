@@ -9,7 +9,7 @@ room = [
     ' ________________________________________________________________________________ ',
     '|                                                                                |',
     '|                                                                                |',
-    '|                    xxxx.xx.xxxx.xxxxxx                                         |',
+    '|                    xxxxCxx.xxxx.xxxxxx                                         |',
     '|                    xxx......xxx.xx...x                                         |',
     '|                    xx..xxxx........x.x                                         |',
     '|                    xx.xx...xxx.xxx.x.x                                         |',
@@ -76,48 +76,48 @@ room_outline = [
     '|                    x                 x                                         |',
     '|                    x                 x                                         |',
     '|                    x                 x                                         |',
-    '|                    x        ✹        x                                         |',
+    '|                    x        ✘        x                                         |',
     '|                    x                 x                                         |',
     '|                    x                 x                                         |',
     '|                    x                  xxxxxx                                   |',
     '|                    x                        xxxx                               |',
     '|                    x                            xxxxxxxxx                      |',
     '|                    x                                     xxxxxxxxxxxxxxx       |',
-    '|                    x        ✹                                           xx     |',
+    '|                    x        ✘                                           xx     |',
     '|                    x                                                      x    |',
-    '|                    x                                                     ✹x    |',
+    '|                    x                                                     ✘x    |',
     '|                    x                                                      x    |',
     '|                    x                                                      x    |',
-    '|                    x                                    ✹                 x    |',
-    '|                    x                   ✹                                  x    |',
+    '|                    x                                    ✘                 x    |',
+    '|                    x                   ✘                                  x    |',
     '|                    x                                                      x    |',
     '|                    x                                                      x    |',
     '|   xxxxxxxxxxxxxxxxx                                                       x    |',
-    '|  x                                                   ✹                     x   |',
-    '|   xx ✹                                                                     x   |',
-    '|     x                               ✹                                      x   |',
+    '|  x                                                   ✘                     x   |',
+    '|   xx ✘                                                                     x   |',
+    '|     x                               ✘                                      x   |',
     '|      x                                                                      x  |',
     '|       x                                                                     x  |',
-    '|        x                                     ✹                  ✹           x  |',
+    '|        x                                     ✘                  ✘           x  |',
     '|        x                                                                    x  |',
     '|         xx                                                                  x  |',
-    '|           x            xxxxxx                                            ✹ x   |',
-    '|            x          x      xx                         ✹                 x    |',
+    '|           x            xxxxxx                                            ✘ x   |',
+    '|            x          x      xx                         ✘                 x    |',
     '|             x        x         x                                        xx     |',
-    '|              xx  ✹   x          x             ✹                       xx       |',
-    '|                xxx  xx           x                                ✹ xx         |',
+    '|              xx  ✘   x          x             ✘                       xx       |',
+    '|                xxx  xx           x                                ✘ xx         |',
     '|                   xx              x                               xx           |',
     '|                                    x                            xx             |',
     '|                                     x                         xx               |',
     '|                                      x                    xxxx                 |',
     '|                                       x                  ←---                  |',
-    '|                                        x ✹               x                     |',
+    '|                                        x ✘               x                     |',
     '|                                         x               x                      |',
     '|                                          x             x                       |',
     '|                                           x            x                       |',
     '|                                            xx          x                       |',
     '|                                              xx        x                       |',
-    '|                                                xx ✹    x                       |',
+    '|                                                xx ✘    x                       |',
     '|                                                  xxx    ←---                   |',
     '|                                                     xxxx x                     |',
     '|                                                         xx                     |',
@@ -133,6 +133,15 @@ sam_i_am = {
         'song_link': 'https://youtu.be/KAO7vs_Q9is',
         'start_end_row_col': [12, 14, 13, 25],
         'punch_char': '∏',
+        'peoples': [
+            ['mansos', 'Tampachoa (Mansos)'],
+            ['mescalero-apache', 'Mescalero Apache'],
+            ['tigua', 'Tigua (Tiwa)'],
+            ['piro', 'Piro'],
+            ['lipan-apache', 'Ndé Kónitsąąíí Gokíyaa (Lipan Apache)'],
+            ['sumas', 'Sumas'],
+            ['chiricahua-apache', 'Chiricahua Apache'],
+        ],
     },
     '2': {
         'name': 'Terlingua',
@@ -141,6 +150,13 @@ sam_i_am = {
         'song_link': 'https://youtu.be/COIB5q792wk',
         'start_end_row_col': [15, 17, 27, 38],
         'punch_char': '∃',
+        'peoples': [
+            ['chiso', 'Chiso'],
+            ['mescalero-apache', 'Mescalero Apache'],
+            ['pescado', 'Pescado'],
+            ['lipan-apache', 'Ndé Kónitsąąíí Gokíyaa (Lipan Apache)'],
+            ['jumanos', 'Jumanos'],
+        ],
     },
     '3': {
         'name': 'Amarillo',
@@ -149,6 +165,10 @@ sam_i_am = {
         'song_link': 'https://youtu.be/KHAgoT4FZbc',
         'start_end_row_col': [5, 8, 13, 25],
         'punch_char': '∑',
+        'peoples': [
+            ['n%ca%89m%ca%89n%ca%89%ca%89-comanche', 'Nʉmʉnʉʉ (Comanche)'],
+            ['kiowa', '[Gáuigú (Kiowa)'],
+        ],
     },
     '4': {
         'name': 'Lubbock',
@@ -157,6 +177,9 @@ sam_i_am = {
         'song_link': 'https://youtu.be/X90m-jQ-ufY',
         'start_end_row_col': [5, 8, 40, 53],
         'punch_char': '♠',
+        'peoples': [
+            ['n%ca%89m%ca%89n%ca%89%ca%89-comanche', 'Nʉmʉnʉʉ (Comanche)'],
+        ],
     },
     '5': {
         'name': 'San Angelo',
@@ -165,6 +188,12 @@ sam_i_am = {
         'song_link': 'https://www.youtube.com/watch?v=cZVstDN-fAg',
         'start_end_row_col': [9, 11, 27, 38],
         'punch_char': '♣',
+        'peoples': [
+            ['n%ca%89m%ca%89n%ca%89%ca%89-comanche', 'Nʉmʉnʉʉ (Comanche)'],
+            ['lipan-apache', 'Ndé Kónitsąąíí Gokíyaa (Lipan Apache)'],
+            ['jumanos', 'Jumanos'],
+            ['kiikaapoi-kickapoo', 'Kiikaapoi (Kickapoo)'],
+        ],
     },
     '6': {
         'name': 'Abilene',
@@ -173,6 +202,11 @@ sam_i_am = {
         'song_link': 'https://www.youtube.com/watch?v=r3CQ8pBSP1w',
         'start_end_row_col': [9, 11, 0, 11],
         'punch_char': '♥',
+        'peoples': [
+            ['n%ca%89m%ca%89n%ca%89%ca%89-comanche', 'Nʉmʉnʉʉ (Comanche)'],
+            ['jumanos', 'Jumanos'],
+            ['kiikaapoi-kickapoo', 'Kiikaapoi (Kickapoo)'],
+        ],
     },
     '7': {
         'name': 'Luckenbach',
@@ -181,6 +215,14 @@ sam_i_am = {
         'song_link': 'https://www.youtube.com/watch?v=Ti6QV90X-Sk',
         'start_end_row_col': [18, 20, 0, 53],
         'punch_char': '♦',
+        'peoples': [
+            ['n%ca%89m%ca%89n%ca%89%ca%89-comanche', 'Nʉmʉnʉʉ (Comanche)'],
+            ['coahuiltecan', 'Coahuiltecan'],
+            ['lipan-apache', 'Ndé Kónitsąąíí Gokíyaa (Lipan Apache)'],
+            ['tonkawa-2', 'Tonkawa'],
+            ['jumanos', 'Jumanos'],
+            ['kiikaapoi-kickapoo', 'Kiikaapoi (Kickapoo)'],
+        ],
     },
     '8': {
         'name': 'San Antonio',
@@ -189,6 +231,12 @@ sam_i_am = {
         'song_link': 'https://www.youtube.com/watch?v=e9H8uZEJtnA',
         'start_end_row_col': [12, 14, 40, 53],
         'punch_char': '*',
+        'peoples': [
+            ['coahuiltecan', 'Coahuiltecan'],
+            ['lipan-apache', 'Ndé Kónitsąąíí Gokíyaa (Lipan Apache)'],
+            ['tonkawa-2', 'Tonkawa'],
+            ['jumanos', 'Jumanos'],
+        ],
     },
     '9': {
         'name': 'Laredo',
@@ -197,6 +245,11 @@ sam_i_am = {
         'song_link': 'https://www.youtube.com/watch?v=YH8QICzCO8g',
         'start_end_row_col': [15, 17, 13, 25],
         'punch_char': '~',
+        'peoples': [
+            ['coahuiltecan', 'Coahuiltecan'],
+            ['lipan-apache', 'Ndé Kónitsąąíí Gokíyaa (Lipan Apache)'],
+            ['alazapas', 'Alazapas'],
+        ]
     },
     '0': {
         'name': 'Brownsville',
@@ -207,6 +260,12 @@ sam_i_am = {
         'punch_char': '╋',
         'extra_song_display': 'Furry Lewis - I\'m Going to Brownsville',
         'extra_song_link': 'https://www.youtube.com/watch?v=vvDGmcFTJAk',
+        'peoples': [
+            ['estokgna/', 'Esto’k Gna (CarrizoComecrudo)'],
+            ['coahuiltecan', 'Coahuiltecan'],
+            ['lipan-apache', 'Ndé Kónitsąąíí Gokíyaa (Lipan Apache)'],
+            ['rayados-borrados', 'Rayados (Borrados)'],
+        ],
     },
     'A': {
         'name': 'Temple',
@@ -215,6 +274,11 @@ sam_i_am = {
         'song_link': 'https://www.youtube.com/watch?v=d-xu_UOJzPY',
         'start_end_row_col': [15, 17, 0, 11],
         'punch_char': '█',
+        'peoples': [
+            ['waco', 'Waco'],
+            ['tonkawa-2', 'Tonkawa'],
+            ['jumanos', 'Jumanos'],
+        ],
     },
     'B': {
         'name': 'Dallas',
@@ -223,6 +287,12 @@ sam_i_am = {
         'song_link': 'https://www.youtube.com/watch?v=U0IgWuSiFDk',
         'start_end_row_col': [9, 11, 40, 53],
         'punch_char': '◤',
+        'peoples': [
+            ['wichita', 'Wichita'],
+            ['tawakoni', 'Tawakoni'],
+            ['jumanos', 'Jumanos'],
+            ['kiikaapoi-kickapoo', 'Kiikaapoi (Kickapoo)'],
+        ],
     },
     'C': {
         'name': 'Texarkana',
@@ -231,6 +301,11 @@ sam_i_am = {
         'song_link': 'https://www.youtube.com/watch?v=JiiGU3hgB2Q',
         'start_end_row_col': [5, 8, 0, 11],
         'punch_char': '$',
+        'peoples': [
+            ['quapaw', 'O-ga-xpa Ma-zhoⁿ (O-ga-xpa)'],
+            ['caddo', 'Caddo'],
+            ['osage', '𐓏𐒰𐓓𐒰𐓓𐒷  𐒼𐓂𐓊𐒻  𐓆𐒻𐒿𐒷  𐓀𐒰^𐓓𐒰^(Osage)'],
+        ],
     },
     'D': {
         'name': 'Huntsville',
@@ -239,6 +314,11 @@ sam_i_am = {
         'song_link': 'https://www.youtube.com/watch?v=Svrlhq5gtuo',
         'start_end_row_col': [12, 14, 27, 38],
         'punch_char': '¥',
+        'peoples': [
+            ['bidai', 'Bidai'],
+            ['koasati-coushatta', 'Koasati (Coushatta)'],
+            ['tonkawa-2', 'Tonkawa'],
+        ],
     },
     'E': {
         'name': 'Beaumont',
@@ -247,6 +327,11 @@ sam_i_am = {
         'song_link': 'https://www.youtube.com/watch?v=VoXWkbEXqXs',
         'start_end_row_col': [5, 8, 27, 38],
         'punch_char': '╳',
+        'peoples': [
+            ['atakapa-2', 'Atakapa-Ishak'],
+            ['koasati-coushatta', 'Koasati (Coushatta)'],
+            ['akokisa', 'Akokisa'],
+        ],
     },
     'F': {
         'name': 'Galveston',
@@ -255,6 +340,13 @@ sam_i_am = {
         'song_link': 'https://www.youtube.com/watch?v=LOdS2IpU-1E',
         'start_end_row_col': [12, 14, 0, 11],
         'punch_char': 'Ƨ',
+        'peoples': [
+            ['karankawa-2', 'Karankawa'],
+            ['estokgna/', 'Esto’k Gna (CarrizoComecrudo)'],
+            ['atakapa-2', 'Atakapa-Ishak'],
+            ['coahuiltecan', 'Coahuiltecan'],
+            ['akokisa', 'Akokisa'],
+        ],
     },
     'G': {
         'name': 'La Grange',
@@ -263,6 +355,12 @@ sam_i_am = {
         'song_link': 'https://www.youtube.com/watch?v=rG6b8gjMEkw',
         'start_end_row_col': [15, 17, 40, 53],
         'punch_char': '¶',
+        'peoples': [
+            ['sanan', 'Sana'],
+            ['coahuiltecan', 'Coahuiltecan'],
+            ['tonkawa-2', 'Tonkawa'],
+            ['jumanos', 'Jumanos'],
+        ],
     }
 }
 
@@ -422,6 +520,7 @@ def index():
 
     bg_farm_str, fg_farm_str = get_colors(steps)
 
+    card_title += '<br>'
     card_title = location(card_title, player_col, player_row)
     card_title = cardinal_str(card_title, cardinal)
 
@@ -481,7 +580,8 @@ def check_for_treasure(player_col, player_row, punch_card, bg_farm_str, request)
         punch_it = (marker[0] not in punch_card)
         treasure = render_template('treasure.html', name=data['name'], pop=data['pop'],
                                    song_display=data['song_display'], song_link=data['song_link'], punch_it=punch_it,
-                                   extra_song_display=extra_song_display, extra_song_link=extra_song_link)
+                                   extra_song_display=extra_song_display, extra_song_link=extra_song_link,
+                                   peoples=data['peoples'])
     else:
         treasure = ''
 
@@ -511,13 +611,13 @@ def location(card_title, player_col, player_row):
 
 def cardinal_str(card_title, cardinal):
     if cardinal == 0:
-        card_title += "Lookin' north."
+        card_title += "lookin' north."
     elif cardinal == 1:
-        card_title += "Lookin' east."
+        card_title += "lookin' east."
     elif cardinal == 2:
-        card_title += "Lookin' south."
+        card_title += "lookin' south."
     else:
-        card_title += "Lookin' west."
+        card_title += "lookin' west."
     return card_title
 
 
@@ -550,7 +650,7 @@ def debug_room(cardinal, player_col, player_row):
     room_subset = []
     for r in range(3):
         line = room_copy[start_row + r][start_col:start_col + 7]
-        line = re.sub('[0-9A-G]', '✹', str(line))
+        line = re.sub('[0-9A-G]', '✘', str(line))
         room_subset.append(line.replace('.', ' ').replace('x', '#'))
 
     return print_screen(room_subset)
