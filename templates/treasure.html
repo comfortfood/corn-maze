@@ -1,7 +1,7 @@
 <div class="card bg-farm fg-farm">
     {% if punch_it %}
         <h3 class="text-center fg-header">You Found {{ name }}!</h3>
-        <h5 class="text-center fg-farm">Click on the city in your card to hole punch it.</h5>
+        <h5 class="text-center fg-farm">Hole punch your Punch Card or it won't count.</h5>
         <br>
     {% endif %}
     <div class="card-title text-center text-white"
@@ -17,7 +17,11 @@
         {% if extra_song_display|length %}
             <br>
             <br>
-            More Music (About Tennessee):<br>
+            {% if 'Furry Lewis - I\'m Going to Brownsville' == extra_song_display %}
+                More Music (About Tennessee):<br>
+            {% else %}
+                More Music (About the color yellow):<br>
+            {% endif %}
             <a class="fg-header"
                href="{{ extra_song_link }}"
                target="popup"

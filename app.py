@@ -161,10 +161,12 @@ sam_i_am = {
     '3': {
         'name': 'Amarillo',
         'pop': '198,955',
-        'song_display': 'J Balvin - Amarillo',
-        'song_link': 'https://youtu.be/KHAgoT4FZbc',
+        'song_display': 'Terry Allen - Amarillo Highway',
+        'song_link': 'https://www.youtube.com/watch?v=mRc-X6RO05U',
         'start_end_row_col': [5, 8, 13, 25],
         'punch_char': '∑',
+        'extra_song_display': 'J Balvin - Amarillo',
+        'extra_song_link': 'https://youtu.be/KHAgoT4FZbc',
         'peoples': [
             ['n%ca%89m%ca%89n%ca%89%ca%89-comanche', 'Nʉmʉnʉʉ (Comanche)'],
             ['kiowa', '[Gáuigú (Kiowa)'],
@@ -583,8 +585,8 @@ def check_for_treasure(player_col, player_row, punch_card, bg_farm_str, request)
         extra_song_display = ''
         extra_song_link = ''
         if 'extra_song_display' in data:
-            extra_song_display = 'Furry Lewis - I\'m Going to Brownsville'
-            extra_song_link = 'https://www.youtube.com/watch?v=vvDGmcFTJAk'
+            extra_song_display = data['extra_song_display']
+            extra_song_link = data['extra_song_link']
 
         punch_it = (marker[0] not in punch_card)
         treasure = render_template('treasure.html', name=data['name'], pop=data['pop'],
