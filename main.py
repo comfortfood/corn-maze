@@ -467,6 +467,11 @@ def calc_punch_card_display(bg_farm_str, sr, er, sc, ec, punch_card, punch_it):
     return pcd
 
 
+@app.route('/health')
+def health():
+    return 'ok', 200
+
+
 @app.route('/ending', methods=['GET'])
 def ending():
     cookie_state = request.cookies.get('state')
